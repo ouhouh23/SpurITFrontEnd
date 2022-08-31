@@ -4,38 +4,38 @@ const content = document.querySelector('.collapsible__content')
 const contentHeight = content.offsetHeight
 const keyframes = [
 {
-	height: 0,
-	opacity: 0
+    height: 0,
+    opacity: 0
 },
 {
-	height: contentHeight.toString() + 'px',
-	opacity: 1
+    height: contentHeight.toString() + 'px',
+    opacity: 1
 }]
 const keyframesReverse = [
 {
-	height: contentHeight.toString() + 'px',
-	opacity: 1
+    height: contentHeight.toString() + 'px',
+    opacity: 1
 },
 {
-	height: 0,
-	opacity: 0
+    height: 0,
+    opacity: 0
 }]
 
 hideButton.style.display = 'none'
 content.style.display = 'none'
 
 showButton.onclick = () => {
-	content.style.display = 'block'
-	content.animate(keyframes, 300)
-	showButton.style.display = 'none'
-	hideButton.style.display = 'block'
+    content.style.display = 'block'
+    content.animate(keyframes, 300)
+    showButton.style.display = 'none'
+    hideButton.style.display = 'block'
 }
 
 hideButton.onclick = () => {
     content.animate(keyframesReverse, 300).onfinish = () => {
-    	content.style.display = 'none'
-    	hideButton.style.display = 'none'
-	    showButton.style.display = 'block'
+        content.style.display = 'none'
+        hideButton.style.display = 'none'
+        showButton.style.display = 'block'
     }
 }
 

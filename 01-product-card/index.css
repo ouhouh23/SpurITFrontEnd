@@ -4,191 +4,189 @@
  * Base styles
  */
 html {
-	font-family: "Arial", sans-serif;
-	font-size: 16px;
-	line-height: 1.5;
-	font-weight: 400;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
 }
 
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-	margin: 0;
-	background: #E5E5E5;
+    margin: 0;
+    background: #E5E5E5;
 }
 
 h1, h2 {
-	margin: 0;
-	font-weight: 900;
+    margin: 0;
+    font-weight: 900;
 }
 
 p {
-	margin: 0;
+    margin: 0;
 }
 
 img {
-	max-width: 100%;
-	height: auto;
-	display: block;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
-@media only screen and (max-width: 576px) {
-	html {
-		font-size: 14px;
-	}
+@media only screen and (min-width: 576px) {
+    html {
+        font-size: 16px;
+    }
 }
 
 /**
  * Layout
  */
 .wrapper {
-	max-width: 75.75rem;
-	margin: 0 auto;
-	padding: 2.5rem 1rem 0;
+    max-width: 75.75rem;
+    margin: 0 auto;
+    padding: 2.5rem 1rem 0;
 }
 
 /**
  * Heading block
  */
 .heading {
-	font-size: 3rem;
-	text-transform: uppercase;
-	text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 /**
  * Cards block
  */
 .cards {
-	margin-top: 2.5rem;
-	display: flex;
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cards__item {
-	max-width: 23.75rem;
-	width: 100%;
-	margin-right: 1.25rem;
-	margin-bottom: 3.77rem;
+    max-width: 23.75rem;
+    width: 100%;
+    margin-bottom: 3.77rem;
 }
 
-.cards__item:last-of-type {
-	margin-right: 0;
-}
+@media only screen and (min-width: 950px) {
+    .cards {
+        flex-direction: row;
+        align-items: stretch;
+    }
 
-@media only screen and (max-width: 950px) {
-	.cards {
-		flex-direction: column;
-		align-items: center;
-	}
+    .cards__item {
+        margin-right: 1.25rem;
+    }
 
-	.cards__item {
-		margin-right: 0;
-	}
+    .cards__item:last-of-type {
+        margin-right: 0;
+    }
 }
 
 /**
  * Card block
  */
 .card {
-	background: #FFFFFF;
-	border-radius: 0.75rem;
-	box-shadow: 0 0 2.8rem -0.25rem #0000002E;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
+    background: #FFFFFF;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 2.8rem -0.25rem #0000002E;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.card__container {
-	position: relative;
+.card__head {
+    position: relative;
 }
 
 .card__tags {
-	position: absolute;
-	top: 1rem;
-	display: flex;
+    position: absolute;
+    top: 1rem;
+    display: flex;
 }
 
-.card__tag {
-	margin-left: 1rem;
-}
-
-.card__text {
+.card__body {
     color: #2F2F2F;
-	padding: 1.5rem;
-	flex-grow: 1;
-	display: flex;
-	flex-direction: column;
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .card__heading {
-	font-size: 1.5rem;
-	margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.card__paragraph {
+.card__description {
     margin-bottom: 1.5rem;
 }
 
 .card__button {
-	margin-top: auto;
+    margin-top: auto;
 }
 
 /**
  * Tag block
  */
 .tag {
-	display: inline-block;
-	padding: 0 1rem;
-	text-transform: uppercase;
-	color: #2F2F2F;
-	border-radius: 0.5rem;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #2F2F2F;
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+    margin-left: 1rem;
 }
 
 .tag--primary {
-	background: #FDCFF3;
+    background: #FDCFF3;
 }
 
 .tag--secondary {
-	background: #FFCF56;
+    background: #FFCF56;
 }
 
 /**
  * Button block
  */
 .button {
-	padding: 0.62rem;
-	border: 2px solid #42940F;
-	border-radius: 0.5rem;
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 1.12rem;
-	line-height: 1.4;
-	font-weight: 900;
-	color: #42940F;
+    padding: 0.62rem;
+    border: 2px solid #42940F;
+    border-radius: 0.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.12rem;
+    line-height: 1.4;
+    font-weight: 900;
+    color: #42940F;
 }
 
 .button:hover {
-	background: #42940F;
-	color: #FFFFFF;
+    background: #42940F;
+    color: #FFFFFF;
 }
 
 .button:active {
-	background: #1F5200;
-	border-color: #1F5200;
-	color: #FFFFFF;
+    background: #1F5200;
+    border-color: #1F5200;
+    color: #FFFFFF;
 }
 
 .button--disabled {
-	background: #4E4E4E;
-	border-color: #4E4E4E;
-	color: #FFFFFF;
-	pointer-events: none;
+    background: #4E4E4E;
+    border-color: #4E4E4E;
+    color: #FFFFFF;
+    pointer-events: none;
 }
 
 /* Template responsive and tested in Chrome, Firefox, Edge, Safari.*/
