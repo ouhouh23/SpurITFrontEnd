@@ -1,0 +1,55 @@
+/**
+ * Base styles
+ */
+body {
+    margin: 0;
+    background: #fff8dc;
+}
+
+/**
+ * Article block
+ */
+.article {
+    font-family: sans-serif;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.article__heading {
+    margin: 0 0 24px;
+}
+
+.article__heading--verified {
+    color: #db7093;
+}
+
+.article__lead {
+    font-family: serif;
+    font-style: italic;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.article__figure {
+    margin: 16px 0 0;
+}
+
+/**
+ * Figure block
+ */
+.figure {
+    font-style: italic;
+}
+
+.figure__image {
+    max-width: 100%;
+    height: auto;
+}
+
+.figure__caption {
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* Template responsive and tested in Chrome, Firefox, Edge, Safari.*/
