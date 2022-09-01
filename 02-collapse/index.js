@@ -1,42 +1,55 @@
-const showButton = document.querySelector('.collapsible__action--hidden')
-const hideButton = document.querySelector('.collapsible__action--visible')
-const content = document.querySelector('.collapsible__content')
-const contentHeight = content.offsetHeight
-const keyframes = [
-{
-    height: 0,
-    opacity: 0
-},
-{
-    height: contentHeight.toString() + 'px',
-    opacity: 1
-}]
-const keyframesReverse = [
-{
-    height: contentHeight.toString() + 'px',
-    opacity: 1
-},
-{
-    height: 0,
-    opacity: 0
-}]
+const collapsibleItems = document.querySelectorAll('.collapsible')
 
-hideButton.style.display = 'none'
-content.style.display = 'none'
+collapsibleItems.forEach(element => {
+    const showButton = element.querySelector('.collapsible__action--hidden')
+    const hideButton = element.querySelector('.collapsible__action--visible')
+    const content = element.querySelector('.collapsible__content')
+    const contentHeight = content.offsetHeight
+    const keyframes = [
+    {
+        height: 0,
+        opacity: 0
+    },
+    {
+        height: contentHeight.toString() + 'px',
+        opacity: 1
+    }]
 
-showButton.onclick = () => {
-    content.style.display = 'block'
-    content.animate(keyframes, 300)
-    showButton.style.display = 'none'
-    hideButton.style.display = 'block'
-}
-
-hideButton.onclick = () => {
-    content.animate(keyframesReverse, 300).onfinish = () => {
-        content.style.display = 'none'
-        hideButton.style.display = 'none'
-        showButton.style.display = 'block'
+    const options = {
+        duration: 300,
+        easing: 'ease-in',
+        fill: 'forwards' 
     }
-}
 
-// Template responsive and tested in Chrome, Firefox, Edge, Safari.
+    const animation = content.animate(keyframes, options)
+    animation.commitStyles()
+    animation.pause()
+
+    const toggleAnimation = () => {
+        animation.play()
+        animation.finished.then(() => {
+            animation.reverse()
+            animation.pause()
+        });
+    }
+
+    hideButton.style.display = 'none'
+    element.style.overflow = 'hidden'
+
+    showButton.addEventListener('click', () => {
+        toggleAnimation()
+        showButton.style.display = 'none'
+        hideButton.style.display = 'block'
+    })
+
+    hideButton.addEventListener('click', () => {
+        toggleAnimation()
+        showButton.style.display = 'block'
+        hideButton.style.display = 'none'
+    })
+})
+
+
+
+
+// Template responsive and tested in Chrome, Firefox, Edge.
