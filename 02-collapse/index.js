@@ -22,6 +22,7 @@ collapsibleItems.forEach(element => {
     }
 
     const animation = content.animate(keyframes, options)
+
     animation.commitStyles()
     animation.pause()
 
@@ -48,8 +49,5 @@ collapsibleItems.forEach(element => {
         hideButton.style.display = 'none'
     })
 })
-
-
-
 
 // Template responsive and tested in Chrome, Firefox, Edge.
